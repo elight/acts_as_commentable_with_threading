@@ -45,7 +45,7 @@ Install
 
 == Usage
  class Model < ActiveRecord::Base
- 	acts_as_commentable_with_threading
+ 	acts_as_commentable
  end
  
  * Add a comment to a model instance
@@ -59,7 +59,7 @@ Install
  # * Each comment reference commentable object
  #
  # model = Model.find(1)
- # model.comments.get(0).commentable == model
+ # model.comment_threads.first.commentable == model
 
 == Credits
 
