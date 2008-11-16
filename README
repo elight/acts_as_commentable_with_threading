@@ -1,5 +1,5 @@
-Acts As Commentable
-=================
+Acts As Commentable (now with comment threads (TM)!!!  -- kidding on the (TM))
+===================
 
 Allows for threaded comments to be added to multiple and different models.  Drop-in compatible for acts_as_commentable (however requiring a database schema change)
 
