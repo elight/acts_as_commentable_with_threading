@@ -15,7 +15,7 @@ module Acts #:nodoc:
 
     module ClassMethods
       def acts_as_commentable
-        has_many :root_comments, :class_name => "Comment", :as => :commentable, :dependent => :destroy, :order => 'created_at ASC'
+        has_many :comment_threads, :class_name => "Comment", :as => :commentable, :dependent => :destroy, :order => 'created_at ASC'
         include Acts::CommentableWithThreading::InstanceMethods
         extend Acts::CommentableWithThreading::SingletonMethods
       end
