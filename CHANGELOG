@@ -5,3 +5,13 @@ Initial Release
 v0.1.1
 ------
 Fixes to gemspec
+
+v0.1.2
+------
+
+Added new documentation in README that should better help users understand this plugin
+Added new instance method "root_comments" that will return all comments belonging to a model except child comments
+Added new class method for Comment: "self.build_from(object, user_id, comment_text:string)"
+	- This method cleans up the code inside the controllers.
+Updated deprecated code in instance method "comments_ordered_by_submitted"
+	- changed "self.type.name" to "self.class.name"
