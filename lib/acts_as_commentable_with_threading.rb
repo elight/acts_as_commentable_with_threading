@@ -49,6 +49,12 @@ module Acts #:nodoc:
     
     # This module contains instance methods
     module InstanceMethods
+      
+      # Helper method to display only root threads, no children/replies
+      def roots
+        self.comment_threads.find(:all, :conditions => {:parent_id => nil})
+      end
+      
       # Helper method to sort comments by date
       def comments_ordered_by_submitted
         Comment.find(:all,

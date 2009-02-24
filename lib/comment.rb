@@ -11,6 +11,18 @@ class Comment < ActiveRecord::Base
   # NOTE: Comments belong to a user
   belongs_to :user
   
+  # Helper class method that allows you to build a comment
+  # by passing a commentable object, a user_id, and comment text
+  # example in readme
+  def self.build_from_object(obj, user_id, comment)
+    c = self.new
+    c.commentable_id = obj.id 
+    c.commentable_type = obj.class.name 
+    c.body = comment 
+    c.user_id = user_id
+    c
+  end
+  
   # Helper class method to lookup all comments assigned
   # to all commentable types for a given user.
   def self.find_comments_by_user(user)
