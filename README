@@ -3,6 +3,10 @@ Acts As Commentable (now with comment threads (TM)!!!  -- kidding on the (TM))
 
 Allows for threaded comments to be added to multiple and different models.  Drop-in compatible for acts_as_commentable (however requiring a database schema change)
 
+***NOTE: This plugin requires that you also install the awesome_nested_set plugin. 
+
+		script/install plugin git://github.com/collectiveidea/awesome_nested_set.git
+
 == Resources
 
 Install
@@ -14,6 +18,8 @@ Install
     script/plugin install git://github.com/elight/acts_as_commentable_with_threading.git 
  
  * Create a new rails migration and add the following self.up and self.down methods
+
+ * These are the required fields for the database migration, however you may add any additional fields you need.
  
   def self.up
     create_table "comments", :force => true do |t|
@@ -40,18 +46,27 @@ Install
  	acts_as_commentable
  end
  
- * Add a comment to a model instance
- 
- model = Model.new
- comment = Comment.new(:model => model, :body => "Your comment text here")
- comment.save!
- comment.move_to_child_of(the_desired_parent_comment)
+ * Add a comment to a model instance, for example an Article
 
- # Following doesn't work/make sense to me. Leaving for historical sake -- Jack
- # * Each comment reference commentable object
- #
- # model = Model.find(1)
- # model.comment_threads.first.commentable == model
+	@article = Article.find(params[:id])
+	@user_who_commented = @current_user
+	@comment = Comment.build_from(@article, @user_who_commented.id, "Hey guys this is my comment!" )
+	
+ * To make a newly created comment into a child/reply of another comment
+
+	comment.move_to_child_of(the_desired_parent_comment)
+	
+ * To retrieve all comments for an article, including child comments
+	
+	@all_comments = @article.comment_threads
+	
+ * To retrieve only the root comments without their children comments
+	
+	@root_comments = @article.root_comments
+ 
+ 
+ 
+
 
 == Credits
 

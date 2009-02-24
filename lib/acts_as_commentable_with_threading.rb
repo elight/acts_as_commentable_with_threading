@@ -51,14 +51,14 @@ module Acts #:nodoc:
     module InstanceMethods
       
       # Helper method to display only root threads, no children/replies
-      def roots
+      def root_comments
         self.comment_threads.find(:all, :conditions => {:parent_id => nil})
       end
       
       # Helper method to sort comments by date
       def comments_ordered_by_submitted
         Comment.find(:all,
-          :conditions => ["commentable_id = ? and commentable_type = ?", id, self.type.name],
+          :conditions => ["commentable_id = ? and commentable_type = ?", id, self.class.name],
           :order => "created_at DESC"
         )
       end
