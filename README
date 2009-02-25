@@ -63,6 +63,20 @@ Install
  * To retrieve only the root comments without their children comments
 	
 	@root_comments = @article.root_comments
+	
+ * To check if a comment has children
+
+	@comment.has_children?
+	
+ * To verify the number of children a comment has
+	
+	@comment.children.size
+	
+ * To retrieve a comments children
+
+	@comment.children
+	
+	
  
  
  

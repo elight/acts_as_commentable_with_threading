@@ -13,5 +13,6 @@ Added new documentation in README that should better help users understand this 
 Added new instance method "root_comments" that will return all comments belonging to a model except child comments
 Added new class method for Comment: "self.build_from(object, user_id, comment_text:string)"
 	- This method cleans up the code inside the controllers.
+Added new class method for Comment: "has_children?" that will return true or false depending on if a comment has children
 Updated deprecated code in instance method "comments_ordered_by_submitted"
 	- changed "self.type.name" to "self.class.name"
