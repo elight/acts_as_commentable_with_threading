@@ -77,6 +77,12 @@ Install
 	@comment.children
 	
 	
+ *If you plan to use the acts_as_voteable plugin with your comment system be sure to uncomment two things:
+
+	in lib/comment.rb uncomment the line "acts_as_voteable"
+	in lib/acts_as_commentable_with_threading.rb uncomment the line "include Juixe::Acts::Voteable" near the top
+	
+	
  
  
  

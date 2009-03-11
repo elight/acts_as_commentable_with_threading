@@ -2,6 +2,7 @@ require 'activerecord'
 require 'awesome_nested_set'
 ActiveRecord::Base.class_eval do
   include CollectiveIdea::Acts::NestedSet
+  #include Juixe::Acts::Voteable   #<-- uncomment this if you have installed and wish to use the acts_as_voteable plugin
 end
 require 'comment'
 
