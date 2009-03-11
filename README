@@ -5,7 +5,7 @@ Allows for threaded comments to be added to multiple and different models.  Drop
 
 ***NOTE: This plugin requires that you also install the awesome_nested_set plugin. 
 
-		script/install plugin git://github.com/collectiveidea/awesome_nested_set.git
+		script/plugin install git://github.com/collectiveidea/awesome_nested_set.git
 
 == Resources
 
