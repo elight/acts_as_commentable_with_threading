@@ -2,6 +2,7 @@ require 'activerecord'
 require 'awesome_nested_set'
 ActiveRecord::Base.class_eval do
   include CollectiveIdea::Acts::NestedSet
+  #include Juixe::Acts::Voteable   #<-- uncomment this if you have installed and wish to use the acts_as_voteable plugin
 end
 require 'comment'
 
@@ -49,10 +50,16 @@ module Acts #:nodoc:
     
     # This module contains instance methods
     module InstanceMethods
+      
+      # Helper method to display only root threads, no children/replies
+      def root_comments
+        self.comment_threads.find(:all, :conditions => {:parent_id => nil})
+      end
+      
       # Helper method to sort comments by date
       def comments_ordered_by_submitted
         Comment.find(:all,
-          :conditions => ["commentable_id = ? and commentable_type = ?", id, self.type.name],
+          :conditions => ["commentable_id = ? and commentable_type = ?", id, self.class.name],
           :order => "created_at DESC"
         )
       end
