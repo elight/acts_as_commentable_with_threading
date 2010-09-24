@@ -1,7 +1,7 @@
-$:.unshift(File.dirname(__FILE__) + '/../lib')
+require 'bundler/setup'
 
-require 'rubygems'
-require 'active_record' 
+require 'active_record'
+
 require 'logger'
 
 plugin_test_dir = File.dirname(__FILE__)

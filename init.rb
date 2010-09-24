@@ -1,3 +1,1 @@
-# Include hook code here
-require 'acts_as_commentable_with_threading'
-
+require File.expand_path('./rails/init', File.dirname(__FILE__))
