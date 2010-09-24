@@ -1,9 +1,9 @@
 sqlite3:
   adapter: sqlite3
-  dbfile: acts_as_commentable_with_threading.sqlite3.db
+  database: acts_as_commentable_with_threading.sqlite3.db
 sqlite3mem:
   :adapter: sqlite3
-  :dbfile: ":memory:"
+  :database: ":memory:"
 postgresql:
   :adapter: postgresql
   :username: postgres

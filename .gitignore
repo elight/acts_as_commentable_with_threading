@@ -1,0 +1,3 @@
+.bundle/
+spec/debug.log
+*.gem

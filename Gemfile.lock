@@ -1,0 +1,35 @@
+PATH
+  remote: .
+  specs:
+    acts_as_commentable_with_threading (0.1.1)
+      activerecord (~> 3.0)
+      awesome_nested_set
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activemodel (3.0.0)
+      activesupport (= 3.0.0)
+      builder (~> 2.1.2)
+      i18n (~> 0.4.1)
+    activerecord (3.0.0)
+      activemodel (= 3.0.0)
+      activesupport (= 3.0.0)
+      arel (~> 1.0.0)
+      tzinfo (~> 0.3.23)
+    activesupport (3.0.0)
+    arel (1.0.1)
+      activesupport (~> 3.0.0)
+    awesome_nested_set (1.4.3)
+      activerecord (>= 1.1)
+    builder (2.1.2)
+    i18n (0.4.1)
+    tzinfo (0.3.23)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord (~> 3.0)
+  acts_as_commentable_with_threading!
+  awesome_nested_set

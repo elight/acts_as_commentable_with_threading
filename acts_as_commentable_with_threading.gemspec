@@ -21,5 +21,6 @@ ACTS_AS_COMMENTABLE_WITH_THREADING = Gem::Specification.new do |s|
   s.test_files = ["spec/commentable_spec.rb", "spec/comment_spec.rb", "spec/spec_helper.rb", "spec/db/database.yml", "spec/db/schema.rb"]
   s.rdoc_options = ["--main", "README"]
 
-  s.add_dependency 'collectiveidea-awesome_nested_set'
+  s.add_dependency 'awesome_nested_set'
+  s.add_dependency 'activerecord', '~> 3.0'
 end

@@ -1,4 +1,4 @@
-require 'activerecord'
+require 'active_record'
 require 'awesome_nested_set'
 ActiveRecord::Base.class_eval do
   include CollectiveIdea::Acts::NestedSet
