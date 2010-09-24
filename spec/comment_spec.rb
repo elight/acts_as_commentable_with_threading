@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), "spec_helper")
+require File.expand_path('./spec_helper', File.dirname(__FILE__))
 
 # Specs some of the behavior of awesome_nested_set although does so to demonstrate the use of this gem
 describe Comment do

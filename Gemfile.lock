@@ -3,6 +3,7 @@ PATH
   specs:
     acts_as_commentable_with_threading (0.1.1)
       activerecord (~> 3.0)
+      activesupport (~> 3.0)
       moretea-awesome_nested_set
 
 GEM
@@ -80,6 +81,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 3.0)
+  activesupport (~> 3.0)
   acts_as_commentable_with_threading!
   bundler (~> 1.0)
   moretea-awesome_nested_set

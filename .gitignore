@@ -1,3 +1,4 @@
+.idea/
 .bundle/
 spec/debug.log
 *.gem
