@@ -25,13 +25,13 @@ Migrations
 
 * To install from scratch:
 
-    rails generate acts_as_commentable_with_threading_migration 	
+    `rails generate acts_as_commentable_with_threading_migration`
 
   This will generate the migration script necessary for the table
  	
 * To upgrade to acts_as_commentable_with_threading from the old acts_as_commentable:
 
-    rails generate acts_as_commentable_upgrade_migration 
+    `rails generate acts_as_commentable_upgrade_migration`
 
   This will generate the necessary migration to upgrade your comments table to work with acts_as_commentable_with_threading
 
@@ -41,14 +41,14 @@ Usage
 -----
 
     class Article < ActiveRecord::Base
-        acts_as_commentable
+      acts_as_commentable
     end
  
 * Add a comment to a model instance, for example an Article
 
-    @article = Article.find(params[:id])
-    @user_who_commented = @current_user
-    @comment = Comment.build_from(@article, @user_who_commented.id, "Hey guys this is my comment!" )
+      @article = Article.find(params[:id])
+      @user_who_commented = @current_user
+      @comment = Comment.build_from(@article, @user_who_commented.id, "Hey guys this is my comment!" )
 	
 * To make a newly created comment into a child/reply of another comment
 
