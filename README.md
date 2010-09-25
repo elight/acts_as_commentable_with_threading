@@ -16,7 +16,7 @@ Install
 -------
 
 In your Gemfile, add
-    gem 'acts_as_commentable_with_threading', :git => 'http://github.com/xxx/acts_as_commentable_with_threading'
+    gem 'acts_as_commentable_with_threading', :git => 'http://github.com/xxx/acts_as_commentable_with_threading.git'
 
 and run `bundle install`.
 	
