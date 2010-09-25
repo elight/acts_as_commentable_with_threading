@@ -10,7 +10,7 @@ This gem is for Rails 3 and later versions only.
 
 This gem depends on [moretea's version](http://github.com/moretea/awesome_nested_set) of CollectiveIdea's Awesome Nested Set gem. It is installed if not already present when you install this gem.
 
-You can find the gem on GitHub:  http://github.com/moretea/awesome_nested_set/tree/master
+You can find the gem on GitHub at [http://github.com/moretea/awesome_nested_set](http://github.com/moretea/awesome_nested_set).
 
 Install
 -------
@@ -80,7 +80,6 @@ in `lib/comment.rb` uncomment the line `acts_as_voteable`
 
 in `lib/acts_as_commentable_with_threading.rb` uncomment the line `include Juixe::Acts::Voteable` near the top
 	
- 
 Credits
 -------
 
@@ -94,4 +93,5 @@ More
 ----
 
 [http://triple-dog-dare.com](http://triple-dog-dare.com)
+
 [http://evan.tiggerpalace.com](http://evan.tiggerpalace.com)
