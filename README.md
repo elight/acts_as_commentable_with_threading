@@ -39,7 +39,6 @@ If the generators fail, you can just as easily create the migrations by hand. Se
 	 	
 Usage
 -----
-
     class Article < ActiveRecord::Base
       acts_as_commentable
     end
@@ -52,27 +51,27 @@ Usage
 	
 * To make a newly created comment into a child/reply of another comment
 
-    comment.move_to_child_of(the_desired_parent_comment)
+      comment.move_to_child_of(the_desired_parent_comment)
 	
 * To retrieve all comments for an article, including child comments
 	
-    @all_comments = @article.comment_threads
+      @all_comments = @article.comment_threads
 	
 * To retrieve only the root comments without their children comments
 	
-    @root_comments = @article.root_comments
+      @root_comments = @article.root_comments
 	
 * To check if a comment has children
 
-    @comment.has_children?
+      @comment.has_children?
 	
 * To verify the number of children a comment has
 	
-    @comment.children.size
+      @comment.children.size
 	
 * To retrieve a comments children
 
-    @comment.children
+      @comment.children
 	
 	
 *If you plan to use the acts_as_voteable plugin with your comment system be sure to uncomment two things:
@@ -94,5 +93,5 @@ Xelipe - Because acts_as_commentable was heavily influenced by Acts As Taggable.
 More
 ----
 
-http://triple-dog-dare.com
-http://evan.tiggerpalace.com
+[http://triple-dog-dare.com](http://triple-dog-dare.com)
+[http://evan.tiggerpalace.com](http://evan.tiggerpalace.com)
