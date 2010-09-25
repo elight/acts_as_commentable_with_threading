@@ -1,25 +1,14 @@
 ACTS_AS_COMMENTABLE_WITH_THREADING = Gem::Specification.new do |s|
   s.name     = "acts_as_commentable_with_threading"
   s.version  = "0.2.0"
-  s.date     = "2008-11-16"
-  s.summary  = "Polymorphic comments Rails plugin"
+  s.date     = "2010-09-24"
+  s.summary  = "Polymorphic comments Rails gem - Rails 3+ only"
   s.email    = "evan@tiggerpalace.com"
   s.homepage = "http://github.com/elight/acts_as_commentable_with_threading"
-  s.description = "Polymorphic threaded comments Rails plugin/gem"
-  s.has_rdoc = true
+  s.description = "Polymorphic threaded comments Rails gem for Rails 3+"
   s.authors  = ["Evan Light", "Jack Dempsey", "Xelipe"] 
-  s.files    = [
-    "CHANGELOG", 
-		"MIT-LICENSE", 
-		"README",
-		"Rakefile", 
-		"acts_as_commentable_with_threading.gemspec", 
-                "init.rb",
-                "install.rb",
-		"lib/acts_as_commentable_with_threading.rb", 
-		"lib/comment.rb"]
+  s.files    = `git ls-files`.split("\n")
   s.test_files = ["spec/commentable_spec.rb", "spec/comment_spec.rb", "spec/spec_helper.rb", "spec/db/database.yml", "spec/db/schema.rb"]
-  s.rdoc_options = ["--main", "README"]
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'bundler', '~> 1.0'
