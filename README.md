@@ -16,7 +16,7 @@ Install
 -------
 
 In your Gemfile, add
-    gem 'acts_as_commentable_with_threading', :git => 'http://github.com/xxx/acts_as_commentable_with_threading.git'
+    gem 'acts_as_commentable_with_threading', :git => 'http://github.com/elight/acts_as_commentable_with_threading.git'
 
 and run `bundle install`.
 	
@@ -82,6 +82,7 @@ in `lib/acts_as_commentable_with_threading.rb` uncomment the line `include Juixe
 	
 Credits
 -------
+xxx - For contributing the updates for Rails 3!
 
 Jack Dempsey  - This plugin/gem is heavily influenced/liberally borrowed/stole from acts_as_commentable
 
@@ -92,6 +93,6 @@ Xelipe - Because acts_as_commentable was heavily influenced by Acts As Taggable.
 More
 ----
 
-[http://triple-dog-dare.com](http://triple-dog-dare.com)
+[http://tripledogdare.net](http://tripledogdare.net)
 
 [http://evan.tiggerpalace.com](http://evan.tiggerpalace.com)
