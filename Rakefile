@@ -2,12 +2,13 @@ require 'rubygems'
 require 'rake/gempackagetask'
 require 'spec'
 require 'spec/rake/spectask'
+require 'bundler/setup'
 
 PLUGIN = "acts_as_commentable_with_threading"
 NAME = "acts_as_commentable_with_threading"
 GEM_VERSION = "1.0.0"
 AUTHOR = "Evan Light"
-EMAIL = "evan@triple-dog-dare.com"
+EMAIL = "evan@tripledogdare.net"
 SUMMARY = "Plugin/gem that provides threaded comment functionality"
 
 load 'acts_as_commentable_with_threading.gemspec'
