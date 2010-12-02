@@ -16,7 +16,7 @@ Install
 -------
 
 In your Gemfile, add
-    gem 'acts_as_commentable_with_threading', :git => 'http://github.com/elight/acts_as_commentable_with_threading.git'
+    gem 'acts_as_commentable_with_threading'
 
 and run `bundle install`.
 	
