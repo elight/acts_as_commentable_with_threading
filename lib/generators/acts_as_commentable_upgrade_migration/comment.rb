@@ -1,7 +1,3 @@
-# WHY IS THIS REQUIRED? 
-ActiveRecord::Base.send(:include, CollectiveIdea::Acts::NestedSet::Base) unless ActiveRecord::Base.respond_to?(:acts_as_nested_set)
-ActiveRecord::Base.establish_connection unless ActiveRecord::Base.connected?
-
 class Comment < ActiveRecord::Base
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
   

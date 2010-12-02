@@ -14,5 +14,6 @@ class ActsAsCommentableUpgradeMigrationGenerator < Rails::Generators::Base
 
   def manifest
     migration_template 'migration.rb', 'db/migrate/acts_as_commentable_upgrade_migration'
+    copy_file 'comment.rb', 'app/models/comment.rb'
   end
 end
