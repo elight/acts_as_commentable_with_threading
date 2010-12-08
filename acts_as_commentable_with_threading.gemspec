@@ -1,7 +1,7 @@
 ACTS_AS_COMMENTABLE_WITH_THREADING = Gem::Specification.new do |s|
   s.name     = "acts_as_commentable_with_threading"
-  s.version  = "1.1.0"
-  s.date     = "2011-12-02"
+  s.version  = "1.1.1"
+  s.date     = "2011-12-08"
   s.summary  = "Polymorphic comments Rails gem - Rails 3+ only"
   s.email    = "evan@tripledogdare.net"
   s.homepage = "http://github.com/elight/acts_as_commentable_with_threading"
