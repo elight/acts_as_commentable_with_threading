@@ -1,6 +1,6 @@
 # Generated from /Users/light/work/my/acts_as_commentable_with_threading/acts_as_commentable_with_threading.gemspec
 source :gemcutter
-gem "activerecord", "~> 3.0"
+gem "activerecord", ">= 3.0"
 gem "activesupport", "~> 3.0"
 gem "moretea-awesome_nested_set", ">= 0"
 

@@ -72,7 +72,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 3.0)
+  activerecord (>= 3.0)
   activesupport (~> 3.0)
   bundler (~> 1.0)
   moretea-awesome_nested_set
