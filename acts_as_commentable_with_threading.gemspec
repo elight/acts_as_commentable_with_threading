@@ -16,7 +16,7 @@ ACTS_AS_COMMENTABLE_WITH_THREADING = Gem::Specification.new do |s|
   s.add_development_dependency 'sqlite3-ruby'
   s.add_development_dependency 'rails', '~> 3.0'
 
-  s.add_dependency 'activerecord', '~> 3.0'
+  s.add_dependency 'activerecord', '>= 3.0'
   s.add_dependency 'activesupport', '~> 3.0'
   s.add_dependency 'moretea-awesome_nested_set'
 end
