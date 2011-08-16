@@ -74,7 +74,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (>= 3.0)
   activesupport (~> 3.0)
-  awesome_nested_set
+  awesome_nested_set (~> 2.0.0)
   bundler (~> 1.0)
   rails (~> 3.0)
   rake
