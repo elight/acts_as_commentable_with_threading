@@ -14,9 +14,9 @@ describe "A class that is commentable" do
 
     describe "#find_comments_for" do
       before :each do
-        @comment = Comment.create!(:user => @user, :commentable_type => @commentable.class, :commentable_id => @commentable.id, :body => 'blargh')
+        @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'blargh')
 
-        @other_comment = Comment.create!(:user => @user, :commentable_type => @other_commentable.class, :commentable_id => @other_commentable.id, :body => 'hello')
+        @other_comment = Comment.create!(:user => @user, :commentable => @other_commentable, :body => 'hello')
 
         @comments = Commentable.find_comments_for(@commentable)
       end
@@ -34,9 +34,9 @@ describe "A class that is commentable" do
       before :each do
         @user2 = User.create!
 
-        @comment = Comment.create!(:user => @user, :commentable_type => @commentable.class, :commentable_id => @commentable.id, :body => 'blargh')
+        @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'blargh')
 
-        @other_comment = Comment.create!(:user => @user2, :commentable_type => @other_commentable.class, :commentable_id => @other_commentable.id, :body => 'hello')
+        @other_comment = Comment.create!(:user => @user2, :commentable => @other_commentable, :body => 'hello')
 
         @comments = Commentable.find_comments_by_user(@user)
       end
@@ -51,25 +51,25 @@ describe "A class that is commentable" do
       end
     end
   end
-  
+
   describe "instance methods" do
     describe "#comments_ordered_by_submitted" do
       before :each do
         @user = User.create!
         @commentable = Commentable.create!
         @other_commentable = Commentable.create!
-        @comment = Comment.create!(:user => @user, :commentable_type => @commentable.class, :commentable_id => @commentable.id, :body => 'sup')
-        @older_comment = Comment.create!(:user => @user, :commentable_type => @commentable.class, :commentable_id => @commentable.id, :body => 'sup', :created_at => 1.week.ago)
-        @oldest_comment = Comment.create!(:user => @user, :commentable_type => @commentable.class, :commentable_id => @commentable.id, :body => 'sup', :created_at => 2.years.ago)
-        @other_comment = Comment.create!(:user => @user, :commentable_type => @other_commentable.class, :commentable_id => @other_commentable.id, :body => 'sup')
+        @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'sup')
+        @older_comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'sup', :created_at => 1.week.ago)
+        @oldest_comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'sup', :created_at => 2.years.ago)
+        @other_comment = Comment.create!(:user => @user, :commentable => @other_commentable, :body => 'sup')
         @comments = @commentable.comments_ordered_by_submitted
       end
-      
+
       it "should return its own comments, ordered with the newest first" do
         @comments.all? { |c| c.commentable_type == @commentable.class.to_s and c.commentable_id == @commentable.id }.should be_true
         @comments.each_cons(2) { |c, c2| c.created_at.should > c2.created_at }
       end
-      
+
       it "should not include comments for other commentables" do
         @comments.any? { |c| c.commentable_type != @commentable.class.to_s or c.commentable_id != @commentable.id }.should be_false
       end

@@ -2,7 +2,6 @@
 source :gemcutter
 gem "activerecord", ">= 3.0"
 gem "activesupport", "~> 3.0"
-gem "awesome_nested_set", ">= 2.0"
 gem "awesome_nested_set", "~> 2.0.0"
 
 group :development do
