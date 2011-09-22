@@ -8,6 +8,9 @@ class ActsAsCommentableWithThreadingMigration < ActiveRecord::Migration
       t.string :subject, :default => ""
       t.integer :user_id, :default => 0, :null => false
       t.integer :parent_id, :lft, :rgt
+      t.boolean :no_reply_required
+      t.boolean :awaiting_reply
+      t.boolean :hidden
       t.timestamps
     end
     

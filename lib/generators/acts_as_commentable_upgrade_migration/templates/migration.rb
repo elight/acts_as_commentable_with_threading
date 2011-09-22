@@ -6,7 +6,10 @@ class ActsAsCommentableUpgradeMigration < ActiveRecord::Migration
     add_column :comments, :lft, :integer
     add_column :comments, :rgt, :integer
     add_column :comments, :updated_at, :datetime
-    
+    add_column :comments, :no_reply_required, :boolean
+    add_column :comments, :awaiting_reply, :boolean
+    add_column :comments, :hidden, :boolean
+
     add_index :comments, :commentable_id
   end
   
@@ -17,6 +20,9 @@ class ActsAsCommentableUpgradeMigration < ActiveRecord::Migration
     remove_column :comments, :lft
     remove_column :comments, :rgt
     remove_column :comments, :updated_at
+    remove_column :comments, :no_reply_required
+    remove_column :comments, :awaiting_reply
+    remove_column :comments, :hidden
     
     remove_index :comments, :commentable_id
   end
