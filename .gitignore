@@ -1,3 +1,4 @@
 .rvmrc
 pkg/*
 spec/debug.log
+.project
