@@ -10,6 +10,7 @@ class Comment < ActiveRecord::Base
   
   # NOTE: Comments belong to a user
   belongs_to :user
+  belongs_to :commentable, :polymorphic => true
   
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
@@ -39,6 +40,8 @@ class Comment < ActiveRecord::Base
   scope :find_comments_for_commentable, lambda { |commentable_str, commentable_id|
     where(:commentable_type => commentable_str.to_s, :commentable_id => commentable_id).order('created_at DESC')
   }
+  
+  scope :visible, where(:hidden => false)
 
   # Helper class method to look up a commentable object
   # given the commentable class name and id 

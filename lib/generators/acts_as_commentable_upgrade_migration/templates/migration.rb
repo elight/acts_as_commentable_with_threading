@@ -6,9 +6,10 @@ class ActsAsCommentableUpgradeMigration < ActiveRecord::Migration
     add_column :comments, :lft, :integer
     add_column :comments, :rgt, :integer
     add_column :comments, :updated_at, :datetime
-    add_column :comments, :no_reply_required, :boolean
-    add_column :comments, :awaiting_reply, :boolean
-    add_column :comments, :hidden, :boolean
+    add_column :comments, :no_reply_required, :boolean, :default => false
+    add_column :comments, :awaiting_reply, :boolean, :default => false
+    add_column :comments, :hidden, :boolean, :default => false
+    add_column :comments, :admin_post, :boolean, :default => false
 
     add_index :comments, :commentable_id
   end

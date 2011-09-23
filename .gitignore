@@ -2,3 +2,4 @@
 pkg/*
 spec/debug.log
 .project
+.bundle
