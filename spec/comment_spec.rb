@@ -45,6 +45,16 @@ describe Comment do
     it "can see its child" do
       @comment.children.first.should == @child
     end
+    
+    it "can identify that an admin has replied to the parent" do
+      @child.admin_post = true
+      @child.save!
+      @comment.has_admin_children?.should == true
+    end
+    
+    it "can identify that it has a parent" do
+      @child.reply?.should == true
+    end
   end
 
   describe "finders" do

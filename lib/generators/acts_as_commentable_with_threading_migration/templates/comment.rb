@@ -29,6 +29,14 @@ class Comment < ActiveRecord::Base
     self.children.size > 0 
   end
   
+  def has_admin_children?
+    self.children.where("admin_post = true").size > 0
+  end
+  
+  def reply?
+    !self.parent.nil?
+  end
+  
   # Helper class method to lookup all comments assigned
   # to all commentable types for a given user.
   scope :find_comments_by_user, lambda { |user|
@@ -47,5 +55,9 @@ class Comment < ActiveRecord::Base
   # given the commentable class name and id 
   def self.find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id)
+  end
+  
+  def unscoped_commentable_type
+    commentable_type.split("::").last
   end
 end
