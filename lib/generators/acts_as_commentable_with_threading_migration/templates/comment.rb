@@ -12,6 +12,8 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, :polymorphic => true
   
+  after_save :hide_children, :if => Proc.new { |comment| comment.hidden && comment.has_children? }
+  
   # Helper class method that allows you to build a comment
   # by passing a commentable object, a user_id, and comment text
   # example in readme
@@ -30,7 +32,7 @@ class Comment < ActiveRecord::Base
   end
   
   def has_admin_children?
-    self.children.where("admin_post = true").size > 0
+    self.children.where(:admin_post => true).size > 0
   end
   
   def reply?
@@ -59,5 +61,11 @@ class Comment < ActiveRecord::Base
   
   def unscoped_commentable_type
     commentable_type.split("::").last
+  end
+  
+  def hide_children
+    self.children.each do |c|
+      c.update_attributes(:hidden => true)
+    end
   end
 end

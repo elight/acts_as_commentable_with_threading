@@ -1,4 +1,4 @@
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 1) do
   create_table "users", :force => true do |t|
     t.timestamps
   end
@@ -17,6 +17,10 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer "parent_id"
     t.integer "lft"
     t.integer "rgt"
+    t.boolean "no_reply_required", :default => false
+    t.boolean "awaiting_reply", :default => false
+    t.boolean "hidden", :default => false
+    t.boolean "admin_post", :default => false
     t.timestamps
   end
 

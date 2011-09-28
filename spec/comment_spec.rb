@@ -93,5 +93,27 @@ describe Comment do
         @comments.should_not include(@other_comment)
       end
     end
+    
+    describe "#visible" do
+      before :each do
+        @hidden_comment = Comment.create!(:body => 'hidden', :user => @user)
+        @child_comment = Comment.create!(:body => 'child of hidden', :user => @user, :parent => @hidden_comment)
+        @hidden_comment.update_attributes(:hidden => true)
+
+        @comments = Comment.visible
+      end
+
+      it "should return the comments that have not been flagged as hidden" do
+        @comments.should include(@comment)
+      end
+
+      it "should not return the comments that have been flagged as hidden" do
+        @comments.should_not include(@hidden_comment)
+      end
+      
+      it "should not return comments that are children of comments that have been hidden" do
+        @comments.should_not include(@child_comment)
+      end
+    end
   end
 end
