@@ -1,4 +1,4 @@
-ACTS_AS_COMMENTABLE_WITH_THREADING = Gem::Specification.new do |s|
+Gem::Specification.new do |s|
   s.name     = "acts_as_commentable_with_threading"
   s.version  = "1.1.1"
   s.date     = "2011-12-08"
