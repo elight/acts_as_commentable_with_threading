@@ -1,8 +1,8 @@
 require 'rubygems'
-require 'rake/gempackagetask'
+require 'bundler/setup'
+require 'rubygems/package_task'
 require 'spec'
 require 'spec/rake/spectask'
-require 'bundler/setup'
 
 PLUGIN = "acts_as_commentable_with_threading"
 NAME = "acts_as_commentable_with_threading"
@@ -11,10 +11,9 @@ AUTHOR = "Evan Light"
 EMAIL = "evan@tripledogdare.net"
 SUMMARY = "Plugin/gem that provides threaded comment functionality"
 
-load 'acts_as_commentable_with_threading.gemspec'
-spec = ACTS_AS_COMMENTABLE_WITH_THREADING
+spec = eval(File.read('acts_as_commentable_with_threading.gemspec'))
 
-Rake::GemPackageTask.new(spec) do |pkg|
+Gem::PackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
 end
 
