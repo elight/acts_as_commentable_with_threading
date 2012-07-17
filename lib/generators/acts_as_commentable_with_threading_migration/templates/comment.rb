@@ -17,17 +17,15 @@ class Comment < ActiveRecord::Base
   # by passing a commentable object, a user_id, and comment text
   # example in readme
   def self.build_from(obj, user_id, comment)
-    c = self.new
-    c.commentable_id = obj.id
-    c.commentable_type = obj.class.base_class.name
-    c.body = comment
-    c.user_id = user_id
-    c
+    new \
+      :commentable => obj,
+      :body        => comment,
+      :user_id     => user_id
   end
 
   #helper method to check if a comment has children
   def has_children?
-    self.children.size > 0
+    self.children.any?
   end
 
   # Helper class method to lookup all comments assigned
