@@ -16,7 +16,7 @@ module Acts #:nodoc:
 
   module ClassMethods
     def acts_as_commentable
-      has_many :comment_threads, :class_name => "Comment", :as => :commentable, :dependent => :destroy
+      has_many :comment_threads, :class_name => "Comment", :as => :commentable, :dependent => :destroy, :order => "#{table_name}.lft, #{table_name}.id", :conditions => { :parent_id => nil }  
       include Acts::CommentableWithThreading::LocalInstanceMethods
       extend Acts::CommentableWithThreading::SingletonMethods
     end
