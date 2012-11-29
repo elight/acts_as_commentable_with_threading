@@ -6,7 +6,7 @@ class Comment < ActiveRecord::Base
 
   # NOTE: install the acts_as_votable plugin if you
   # want user to vote on the quality of comments.
-  #acts_as_voteable
+  #acts_as_votable
 
   belongs_to :commentable, :polymorphic => true
 

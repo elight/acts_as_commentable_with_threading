@@ -81,16 +81,12 @@ Usage
 
         @comment.children
 
-* If you plan to use the `acts_as_voteable` plugin with your comment system be
+* If you plan to use the `acts_as_votable` plugin with your comment system be
   sure to uncomment two things:
 
-  * In `lib/comment.rb` uncomment the line [`acts_as_voteable`][L9].
-
-  * In `lib/acts_as_commentable_with_threading.rb` uncomment the line
-    [`include Juixe::Acts::Voteable`][L5] near the top.
+  * In `lib/comment.rb` uncomment the line [`acts_as_votable`][L9].
 
 [L9]: https://github.com/elight/acts_as_commentable_with_threading/blob/master/lib/generators/acts_as_commentable_with_threading_migration/templates/comment.rb#L9
-[L5]: https://github.com/elight/acts_as_commentable_with_threading/blob/master/lib/acts_as_commentable_with_threading.rb#L5
 
 Credits
 -------
