@@ -8,6 +8,6 @@ group :development do
   gem "rake", ">= 0"
   gem "bundler"
   gem "rspec", "~> 1.3"
-  gem "sqlite3-ruby", ">= 0"
+  gem "sqlite3", ">= 0"
   gem "rails", "~> 3.2"
 end
