@@ -47,7 +47,7 @@ Usage
 
         @comment.move_to_child_of(the_desired_parent_comment)
 
-* To retrieve all comments for an article, including child comments:
+* To retrieve all comments for an car, including child comments:
 
         @all_comments = @car.engine_comment_threads
 
