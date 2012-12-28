@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 1) do
     t.integer "parent_id"
     t.integer "lft"
     t.integer "rgt"
+    t.string "role", :default => "comments"
     t.timestamps
   end
 

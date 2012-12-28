@@ -8,9 +8,11 @@ class ActsAsCommentableWithThreadingMigration < ActiveRecord::Migration
       t.string :subject, :default => ""
       t.integer :user_id, :default => 0, :null => false
       t.integer :parent_id, :lft, :rgt
+      t.string :role, :default => "comments"
       t.timestamps
     end
-    
+
+    add_index :comments, :commentable_type
     add_index :comments, :user_id
     add_index :comments, :commentable_id
   end

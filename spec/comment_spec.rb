@@ -72,7 +72,7 @@ describe Comment do
 
         @other_comment = Comment.create!(:body => 'from other user', :commentable_type => @user.class.to_s, :commentable_id => @user.id, :user => @other_user)
 
-        @comments = Comment.find_comments_for_commentable(@other_user.class, @other_user.id)
+        @comments = Comment.find_comments_for_commentable(@other_user.class.name, @other_user.id)
       end
 
       it "should return the comments for the passed commentable" do
