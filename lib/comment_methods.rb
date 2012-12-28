@@ -1,4 +1,4 @@
-module ActsAsCommentable
+module ActsAsCommentableWithThreading
   # including this module into your Comment model will give you finders and named scopes
   # useful for working with Comments.
   # The named scopes are:

@@ -28,6 +28,6 @@ class Comment < ActiveRecord::Base
     self.children.any?
   end
 
-  include ActsAsCommentable::Comment
+  include ActsAsCommentableWithThreading::Comment
 
 end
