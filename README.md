@@ -41,7 +41,9 @@ Usage
 * Add a comment to a model instance, for example an Car:
 
         @car = Car.find(params[:id])
-        @comment = @car.engine_comment_threads.build(:body => "Hey guys this is my comment!", :user_id => current_user.id)
+        @comment = @car.engine_comment_threads.build(:body => "Hey guys this is my comment!")
+        @comment.user = current_user
+        @comment.save
 
 * To make a newly created comment into a child/reply of another comment:
 
