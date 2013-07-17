@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  attr_accessible :commentable, :user_id, :body, :subject
+
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
   validates :body, :presence => true
