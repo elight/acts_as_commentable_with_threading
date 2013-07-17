@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :commentable, :user_id, :body, :subject
+  attr_accessible :commentable, :user_id, :body, :subject, :title
 
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
