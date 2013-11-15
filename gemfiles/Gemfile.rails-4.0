@@ -4,7 +4,7 @@ gemspec path: '..'
 
 gem 'activerecord', '~> 4.0.0'
 gem 'activesupport', '~> 4.0.0'
-gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set', :branch => 'rails4'
+gem 'awesome_nested_set','~> 2.1'
 
 group :development do
   gem 'rake'
