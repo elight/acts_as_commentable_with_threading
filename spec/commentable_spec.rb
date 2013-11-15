@@ -2,7 +2,7 @@ require File.expand_path('./spec_helper', File.dirname(__FILE__))
 
 describe "A class that is commentable" do
   it "can have many root comments" do
-    Commentable.new.comment_threads.should be_a_kind_of(Enumerable)
+    Commentable.new.comment_threads.respond_to?(:each).should be_true
   end
 
   describe "when is destroyed" do

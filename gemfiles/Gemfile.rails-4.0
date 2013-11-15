@@ -1,0 +1,18 @@
+source 'http://rubygems.org'
+
+gemspec path: '..'
+
+gem 'activerecord', '~> 4.0.0'
+gem 'activesupport', '~> 4.0.0'
+gem 'awesome_nested_set', github: 'collectiveidea/awesome_nested_set', :branch => 'rails4'
+
+group :development do
+  gem 'rake'
+  gem 'sqlite3', '>= 0'
+  gem 'rails', '~> 4.0.0'
+end
+
+group :development, :test do
+  gem 'rspec', '~> 2.4'
+  gem 'rspec-rails', '~> 2.4'
+end
