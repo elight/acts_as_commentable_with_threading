@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/elight/acts_as_commentable_with_threading.png)](https://travis-ci.org/elight/acts_as_commentable_with_threading)
+
 Acts As Commentable (now with comment threads(TM)!!!  -- kidding on the (TM))
 ===================
 
