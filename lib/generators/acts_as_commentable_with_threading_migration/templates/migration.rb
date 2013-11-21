@@ -5,7 +5,7 @@ class ActsAsCommentableWithThreadingMigration < ActiveRecord::Migration
       t.string :commentable_type
       t.string :title
       t.text :body
-      t.string :subject{}
+      t.string :subject
       t.integer :user_id, :default => 0, :null => false
       t.integer :parent_id, :lft, :rgt
       t.timestamps
