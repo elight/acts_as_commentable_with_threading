@@ -9,6 +9,7 @@ group :development do
   gem "rake", ">= 0"
   gem "bundler"
   gem "rspec"
-  gem "sqlite3", ">= 0"
+  gem 'activerecord-jdbcsqlite3-adapter', :platforms => :jruby
+  gem 'sqlite3', :platforms => :ruby
   gem "rails", "~> 4.0"
 end

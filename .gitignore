@@ -1,3 +1,4 @@
 .rvmrc
+.ruby-version
 pkg/*
 spec/debug.log
