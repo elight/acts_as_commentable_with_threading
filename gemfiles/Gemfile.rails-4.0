@@ -8,7 +8,8 @@ gem 'awesome_nested_set','~> 3.0.0.rc.2'
 
 group :development do
   gem 'rake'
-  gem 'sqlite3', '>= 0'
+  gem 'activerecord-jdbcsqlite3-adapter', :platforms => :jruby
+  gem 'sqlite3', :platforms => :ruby
   gem 'rails', '~> 4.0.0'
 end
 
