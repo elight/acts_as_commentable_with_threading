@@ -6,6 +6,11 @@ gem 'activerecord', '~> 4.0.0'
 gem 'activesupport', '~> 4.0.0'
 gem 'awesome_nested_set','~> 3.0.0.rc.2'
 
+platforms :rbx do
+  gem 'rubysl', '~> 2.0'
+  gem 'rubinius-developer_tools'
+end
+
 group :development do
   gem 'rake'
   gem 'activerecord-jdbcsqlite3-adapter', :platforms => :jruby
