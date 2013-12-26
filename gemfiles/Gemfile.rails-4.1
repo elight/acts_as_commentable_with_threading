@@ -1,0 +1,24 @@
+source 'http://rubygems.org'
+
+gemspec path: '..'
+
+gem 'activerecord', '~> 4.1.0.beta1'
+gem 'activesupport', '~> 4.1.0.beta1'
+gem 'awesome_nested_set','~> 3.0.0.rc.2'
+
+platforms :rbx do
+  gem 'rubysl', '~> 2.0'
+  gem 'rubinius-developer_tools'
+end
+
+group :development do
+  gem 'rake'
+  gem 'activerecord-jdbcsqlite3-adapter', :platforms => :jruby
+  gem 'sqlite3', :platforms => :ruby
+  gem 'rails', '~> 4.1.0.beta1'
+end
+
+group :development, :test do
+  gem 'rspec', '~> 2.4'
+  gem 'rspec-rails', '~> 2.4'
+end
