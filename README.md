@@ -61,7 +61,7 @@ Usage
 
 * To make a newly created comment into a child/reply of another comment:
 
-        comment.move_to_child_of(the_desired_parent_comment)
+        @comment.move_to_child_of(the_desired_parent_comment)
 
 * To retrieve all comments for an article, including child comments:
 
