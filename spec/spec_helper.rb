@@ -15,7 +15,7 @@ require File.join(plugin_test_dir, '..', 'init')
 require File.join(plugin_test_dir, '..', 'lib', 'generators', 'acts_as_commentable_with_threading_migration', 'templates', 'comment')
 
 class User < ActiveRecord::Base
-  has_many :comments
+  has_many :comments, :as => :commenter
 end
 
 class Commentable < ActiveRecord::Base

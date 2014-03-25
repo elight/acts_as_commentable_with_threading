@@ -9,7 +9,7 @@ describe "A class that is commentable" do
     before :each do
       @user = User.create!
       @commentable = Commentable.create!
-      @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'blargh')
+      @comment = Comment.create!(:commenter => @user, :commentable => @commentable, :body => 'blargh')
     end
 
     it "also destroys its root comments" do
@@ -18,7 +18,7 @@ describe "A class that is commentable" do
     end
 
     it "also destroys its nested comments" do
-      child = Comment.new(:body => "This is a child", :commentable => @commentable, :user => @user)
+      child = Comment.new(:body => "This is a child", :commentable => @commentable, :commenter => @user)
       child.save!
       child.move_to_child_of(@comment)
 
@@ -37,9 +37,9 @@ describe "A class that is commentable" do
 
     describe "#find_comments_for" do
       before :each do
-        @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'blargh')
+        @comment = Comment.create!(:commenter => @user, :commentable => @commentable, :body => 'blargh')
 
-        @other_comment = Comment.create!(:user => @user, :commentable => @other_commentable, :body => 'hello')
+        @other_comment = Comment.create!(:commenter => @user, :commentable => @other_commentable, :body => 'hello')
 
         @comments = Commentable.find_comments_for(@commentable)
       end
@@ -53,24 +53,24 @@ describe "A class that is commentable" do
       end
     end
 
-    describe "#find_comments_by_user" do
+    describe "#find_comments_by_commenter" do
       before :each do
         @user2 = User.create!
 
-        @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'blargh')
+        @comment = Comment.create!(:commenter => @user, :commentable => @commentable, :body => 'blargh')
 
-        @other_comment = Comment.create!(:user => @user2, :commentable => @other_commentable, :body => 'hello')
+        @other_comment = Comment.create!(:commenter => @user2, :commentable => @other_commentable, :body => 'hello')
 
-        @comments = Commentable.find_comments_by_user(@user)
+        @comments = Commentable.find_comments_by_commenter(@user)
       end
 
       it "should return comments by the passed user" do
-        @comments.all? { |c| c.user == @user }.should be_true
+        @comments.all? { |c| c.commenter == @user }.should be_true
       end
 
 
       it "should not return comments by other users" do
-        @comments.any? { |c| c.user != @user }.should be_false
+        @comments.any? { |c| c.commenter != @user }.should be_false
       end
     end
   end
@@ -81,10 +81,10 @@ describe "A class that is commentable" do
         @user = User.create!
         @commentable = Commentable.create!
         @other_commentable = Commentable.create!
-        @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'sup')
-        @older_comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'sup', :created_at => 1.week.ago)
-        @oldest_comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'sup', :created_at => 2.years.ago)
-        @other_comment = Comment.create!(:user => @user, :commentable => @other_commentable, :body => 'sup')
+        @comment = Comment.create!(:commenter => @user, :commentable => @commentable, :body => 'sup')
+        @older_comment = Comment.create!(:commenter => @user, :commentable => @commentable, :body => 'sup', :created_at => 1.week.ago)
+        @oldest_comment = Comment.create!(:commenter => @user, :commentable => @commentable, :body => 'sup', :created_at => 2.years.ago)
+        @other_comment = Comment.create!(:commenter => @user, :commentable => @other_commentable, :body => 'sup')
         @comments = @commentable.comments_ordered_by_submitted
       end
 

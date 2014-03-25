@@ -13,13 +13,14 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string "title", :default => ""
     t.text "body", :default => ""
     t.string "subject", :default => ""
-    t.integer "user_id", :default => 0, :null => false
+    t.references "commenter", :polymorphic => true
+    t.boolean "highlight", :default => false
     t.integer "parent_id"
     t.integer "lft"
     t.integer "rgt"
     t.timestamps
   end
 
-  add_index "comments", "user_id"
+  add_index "comments", "commenter_id"
   add_index "comments", "commentable_id"
 end
