@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(:version => 1) do
     t.text "body", :default => ""
     t.string "subject", :default => ""
     t.references "commenter", :polymorphic => true
-    t.boolean "highlight", :default => false
     t.integer "parent_id"
     t.integer "lft"
     t.integer "rgt"

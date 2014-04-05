@@ -8,7 +8,6 @@ class ActsAsCommentableWithThreadingMigration < ActiveRecord::Migration
       t.string :subject
       t.references :commenter, :polymorphic => true
       t.integer :parent_id, :lft, :rgt
-      t.boolean :highlight, :default => false
       t.timestamps
     end
     
