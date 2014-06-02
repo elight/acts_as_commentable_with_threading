@@ -1,0 +1,16 @@
+gemfile:
+  - gemfiles/Gemfile.rails-3.0
+  - gemfiles/Gemfile.rails-3.1
+  - gemfiles/Gemfile.rails-3.2
+  - gemfiles/Gemfile.rails-4.0
+  - gemfiles/Gemfile.rails-4.1
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - 2.1.0
+  - jruby-19mode
+  - rbx-2
+matrix:
+  allow_failures:
+    - gemfile: gemfiles/Gemfile.rails-4.1
+      rvm: jruby-19mode

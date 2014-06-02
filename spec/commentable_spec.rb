@@ -2,7 +2,30 @@ require File.expand_path('./spec_helper', File.dirname(__FILE__))
 
 describe "A class that is commentable" do
   it "can have many root comments" do
-    Commentable.new.comment_threads.should be_a_kind_of(Enumerable)
+    Commentable.new.comment_threads.respond_to?(:each).should be_true
+  end
+
+  describe "when is destroyed" do
+    before :each do
+      @user = User.create!
+      @commentable = Commentable.create!
+      @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'blargh')
+    end
+
+    it "also destroys its root comments" do
+      @commentable.destroy
+      Comment.all.should_not include(@comment)
+    end
+
+    it "also destroys its nested comments" do
+      child = Comment.new(:body => "This is a child", :commentable => @commentable, :user => @user)
+      child.save!
+      child.move_to_child_of(@comment)
+
+      @commentable.destroy
+      Comment.all.should_not include(@comment)
+      Comment.all.should_not include(child)
+    end
   end
 
   describe "special class finders" do
