@@ -9,27 +9,27 @@ describe Comment do
 
   describe "that is valid" do
     it "should have a user" do
-      @comment.user.should_not be_nil
+      expect(@comment.user).not_to be_nil
     end
     
     it "should have a body" do
-      @comment.body.should_not be_nil
+      expect(@comment.body).not_to be_nil
     end
   end
     
   it "should not have a parent if it is a root Comment" do
-    @comment.parent.should be_nil
+    expect(@comment.parent).to be_nil
   end
 
   it "can have see how child Comments it has" do
-    @comment.children.size.should == 0
+    expect(@comment.children.size).to eq(0)
   end
 
   it "can add child Comments" do
     grandchild = Comment.new(:body => "This is a grandchild", :user => @user)
     grandchild.save!
     grandchild.move_to_child_of(@comment)
-    @comment.children.size.should == 1
+    expect(@comment.children.size).to eq(1)
   end    
 
   describe "after having a child added" do
@@ -39,11 +39,11 @@ describe Comment do
     end
     
     it "can be referenced by its child" do    
-      @child.parent.should == @comment
+      expect(@child.parent).to eq(@comment)
     end
     
     it "can see its child" do
-      @comment.children.first.should == @child
+      expect(@comment.children.first).to eq(@child)
     end
   end
 
@@ -57,11 +57,11 @@ describe Comment do
       end
 
       it "should return all the comments created by the passed user" do
-        @comments.should include(@user_comment)
+        expect(@comments).to include(@user_comment)
       end
       
       it "should not return comments created by non-passed users" do
-        @comments.should_not include(@non_user_comment)
+        expect(@comments).not_to include(@non_user_comment)
       end
     end
 
@@ -76,11 +76,11 @@ describe Comment do
       end
 
       it "should return the comments for the passed commentable" do
-        @comments.should include(@user_comment)
+        expect(@comments).to include(@user_comment)
       end
 
       it "should not return the comments for non-passed commentables" do
-        @comments.should_not include(@other_comment)
+        expect(@comments).not_to include(@other_comment)
       end
     end
   end
