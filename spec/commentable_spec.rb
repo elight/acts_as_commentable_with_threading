@@ -2,7 +2,7 @@ require File.expand_path('./spec_helper', File.dirname(__FILE__))
 
 describe "A class that is commentable" do
   it "can have many root comments" do
-    Commentable.new.comment_threads.respond_to?(:each).should be_true
+    Commentable.new.comment_threads.respond_to?(:each).should eq(true)
   end
 
   describe "when is destroyed" do
@@ -65,12 +65,12 @@ describe "A class that is commentable" do
       end
 
       it "should return comments by the passed user" do
-        @comments.all? { |c| c.user == @user }.should be_true
+        @comments.all? { |c| c.user == @user }.should eq(true)
       end
 
 
       it "should not return comments by other users" do
-        @comments.any? { |c| c.user != @user }.should be_false
+        @comments.any? { |c| c.user != @user }.should eq(false)
       end
     end
   end
@@ -89,12 +89,12 @@ describe "A class that is commentable" do
       end
 
       it "should return its own comments, ordered with the newest first" do
-        @comments.all? { |c| c.commentable_type == @commentable.class.to_s and c.commentable_id == @commentable.id }.should be_true
+        @comments.all? { |c| c.commentable_type == @commentable.class.to_s and c.commentable_id == @commentable.id }.should eq(true)
         @comments.each_cons(2) { |c, c2| c.created_at.should > c2.created_at }
       end
 
       it "should not include comments for other commentables" do
-        @comments.any? { |c| c.commentable_type != @commentable.class.to_s or c.commentable_id != @commentable.id }.should be_false
+        @comments.any? { |c| c.commentable_type != @commentable.class.to_s or c.commentable_id != @commentable.id }.should eq(false)
       end
     end
   end
