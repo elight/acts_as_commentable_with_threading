@@ -13,7 +13,7 @@ class ActsAsCommentableWithThreadingMigrationGenerator < Rails::Generators::Base
   end
 
   def manifest
-    migration_template 'migration.rb', 'db/migrate/acts_as_commentable_with_threading_migration'
+    migration_template 'migration.rb', 'db/migrate/acts_as_commentable_with_threading_migration.rb'
     copy_file 'comment.rb', 'app/models/comment.rb'
   end
 end
