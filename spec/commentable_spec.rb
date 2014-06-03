@@ -2,7 +2,7 @@ require File.expand_path('./spec_helper', File.dirname(__FILE__))
 
 describe "A class that is commentable" do
   it "can have many root comments" do
-    Commentable.new.comment_threads.respond_to?(:each).should be_true
+    expect(Commentable.new.comment_threads.respond_to?(:each)).to eq(true)
   end
 
   describe "when is destroyed" do
@@ -14,7 +14,7 @@ describe "A class that is commentable" do
 
     it "also destroys its root comments" do
       @commentable.destroy
-      Comment.all.should_not include(@comment)
+      expect(Comment.all).not_to include(@comment)
     end
 
     it "also destroys its nested comments" do
@@ -23,8 +23,8 @@ describe "A class that is commentable" do
       child.move_to_child_of(@comment)
 
       @commentable.destroy
-      Comment.all.should_not include(@comment)
-      Comment.all.should_not include(child)
+      expect(Comment.all).not_to include(@comment)
+      expect(Comment.all).not_to include(child)
     end
   end
 
@@ -45,11 +45,11 @@ describe "A class that is commentable" do
       end
 
       it "should return the comments for the passed commentable" do
-        @comments.should include(@comment)
+        expect(@comments).to include(@comment)
       end
 
       it "should not return the comments for other commentables" do
-        @comments.should_not include(@other_comment)
+        expect(@comments).not_to include(@other_comment)
       end
     end
 
@@ -65,12 +65,12 @@ describe "A class that is commentable" do
       end
 
       it "should return comments by the passed user" do
-        @comments.all? { |c| c.user == @user }.should be_true
+        expect(@comments.all? { |c| c.user == @user }).to eq(true)
       end
 
 
       it "should not return comments by other users" do
-        @comments.any? { |c| c.user != @user }.should be_false
+        expect(@comments.any? { |c| c.user != @user }).to eq(false)
       end
     end
   end
@@ -89,12 +89,12 @@ describe "A class that is commentable" do
       end
 
       it "should return its own comments, ordered with the newest first" do
-        @comments.all? { |c| c.commentable_type == @commentable.class.to_s and c.commentable_id == @commentable.id }.should be_true
-        @comments.each_cons(2) { |c, c2| c.created_at.should > c2.created_at }
+        expect(@comments.all? { |c| c.commentable_type == @commentable.class.to_s and c.commentable_id == @commentable.id }).to eq(true)
+        @comments.each_cons(2) { |c, c2| expect(c.created_at).to be > c2.created_at }
       end
 
       it "should not include comments for other commentables" do
-        @comments.any? { |c| c.commentable_type != @commentable.class.to_s or c.commentable_id != @commentable.id }.should be_false
+        expect(@comments.any? { |c| c.commentable_type != @commentable.class.to_s or c.commentable_id != @commentable.id }).to eq(false)
       end
     end
   end
