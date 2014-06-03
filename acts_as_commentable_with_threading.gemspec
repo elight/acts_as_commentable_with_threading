@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activerecord', '>= 3.0'
   s.add_dependency 'activesupport', '>= 3.0'
-  s.add_dependency 'awesome_nested_set', '>= 2.0'
+  s.add_dependency 'awesome_nested_set', '3.0.0.rc.5'
 end
