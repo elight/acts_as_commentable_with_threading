@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 
 gem "activerecord", "~> 4.0"
 gem "activesupport", "~> 4.0"
-gem "awesome_nested_set", "~> 3.0.0.rc.2"
+gem "awesome_nested_set", "~> 3.0.0.rc.5"
 
 platforms :rbx do
   gem 'rubysl', '~> 2.0'

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "acts_as_commentable_with_threading"
-  s.version  = "1.2.0"
+  s.version  = "1.2.1"
   s.date     = "2014-01-10"
   s.summary  = "Polymorphic comments Rails gem - Rails 3+ only"
   s.email    = "evan@tripledogdare.net"
@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'activerecord', '>= 3.0'
   s.add_dependency 'activesupport', '>= 3.0'
-  s.add_dependency 'awesome_nested_set', '>= 2.0'
+  s.add_dependency 'awesome_nested_set', '>= 3.0.0.rc.5'
 end
