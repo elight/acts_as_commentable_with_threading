@@ -84,9 +84,7 @@ Usage
         @comment.children
 
 * If you plan to use the `acts_as_votable` plugin with your comment system be
-  sure to uncomment two things:
-
-  * In `lib/comment.rb` uncomment the line [`acts_as_votable`][L9].
+  sure to uncomment the line [`acts_as_votable`][L9] in `lib/comment.rb`.
 
 [L9]: https://github.com/elight/acts_as_commentable_with_threading/blob/master/lib/generators/acts_as_commentable_with_threading_migration/templates/comment.rb#L9
 
