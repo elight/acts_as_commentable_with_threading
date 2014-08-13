@@ -12,5 +12,6 @@ rvm:
   - rbx-2
 matrix:
   allow_failures:
+    - rvm: rbx-2
     - gemfile: gemfiles/Gemfile.rails-4.1
       rvm: jruby-19mode
