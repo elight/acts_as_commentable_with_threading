@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/elight/acts_as_commentable_with_threading.png)](https://travis-ci.org/elight/acts_as_commentable_with_threading)
+[![Code Climate](https://codeclimate.com/github/elight/acts_as_commentable_with_threading/badges/gpa.svg)](https://codeclimate.com/github/elight/acts_as_commentable_with_threading)
 
 Acts As Commentable (now with comment threads(TM)!!!  -- kidding on the (TM))
 ===================
@@ -9,7 +10,7 @@ schema change)
 
 Requirements
 ------------
-This gem is for Rails 3 and later versions only.
+The 2.x version of this gem is for Rails 4 and later versions only.  For the Rails 3.x compatible version of this gem, please use version 1.2.0.
 
 This gem depends on CollectiveIdea's Awesome Nested Set gem. It is installed if
 not already present when you install this gem.
