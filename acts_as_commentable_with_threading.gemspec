@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.email    = "evan@tripledogdare.net"
   s.homepage = "http://github.com/elight/acts_as_commentable_with_threading"
   s.description = "Polymorphic threaded comments Rails gem for Rails 4+"
-  s.authors  = ["Evan Light", "Jack Dempsey", "Xelipe", "xxx"]
+  s.authors  = ["Evan Light", "Jack Dempsey", "Xelipe", "xxx", "Peter Goldstein"]
   s.files    = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- spec/*`.split("\n")
 
