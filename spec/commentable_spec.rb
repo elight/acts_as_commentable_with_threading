@@ -5,26 +5,50 @@ describe "A class that is commentable" do
     expect(Commentable.new.comment_threads.respond_to?(:each)).to eq(true)
   end
 
+
   describe "when is destroyed" do
+    def create_comment(props={})
+      Comment.create! props.reverse_merge(:user => @user, :commentable => @commentable, :body => 'blargh')
+    end
+
+    def create_reply_to(parent, props={})
+      child = Comment.new props.reverse_merge(:body => "This is a child", :commentable => @commentable, :user => @user)
+      child.save!
+      child.move_to_child_of(parent)
+    end
+
     before :each do
       @user = User.create!
       @commentable = Commentable.create!
-      @comment = Comment.create!(:user => @user, :commentable => @commentable, :body => 'blargh')
+      @comment = create_comment
     end
+
 
     it "also destroys its root comments" do
       @commentable.destroy
       expect(Comment.all).not_to include(@comment)
     end
 
-    it "also destroys its nested comments" do
-      child = Comment.new(:body => "This is a child", :commentable => @commentable, :user => @user)
-      child.save!
-      child.move_to_child_of(@comment)
+    it "also destroys its child comments" do
+      child = create_reply_to @comment
 
       @commentable.destroy
       expect(Comment.all).not_to include(@comment)
       expect(Comment.all).not_to include(child)
+    end
+
+    it "also destroys its nested comments" do
+      c2   = create_comment :body => "Two"
+      c21  = create_reply_to c2,  :body => "Two-one"
+      c211 = create_reply_to c21, :body => "Two-one-one"
+      c3   = create_comment :body => "Three"
+
+      expect { @commentable.destroy }.to change { Comment.count }.by(-5)
+      Comment.all.should_not include(@comment)
+      Comment.all.should_not include(c2)
+      Comment.all.should_not include(c21)
+      Comment.all.should_not include(c211)
+      Comment.all.should_not include(c3)
     end
   end
 
