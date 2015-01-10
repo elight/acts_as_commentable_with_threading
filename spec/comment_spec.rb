@@ -47,6 +47,16 @@ describe Comment do
     end
   end
 
+  describe "#build_child" do
+    let(:commentable) { Commentable.create! }
+    subject { @comment.build_child(commentable, @user.id, "Child comment") }
+
+    it "builds a child comment" do
+      expect(subject).to be_a(Comment)
+      expect(subject.parent_id).to eq(@comment.id)      
+    end
+  end
+
   describe "finders" do
     describe "#find_comments_by_user" do
       before :each do

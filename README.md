@@ -64,6 +64,10 @@ Usage
 
         @comment.move_to_child_of(the_desired_parent_comment)
 
+* To make a child comment for parent comment:
+
+        @child_comment = @comment.build_child( @article, @user_who_commented.id, "Hey bro! I see your comment" )
+
 * To retrieve all comments for an article, including child comments:
 
         @all_comments = @article.comment_threads

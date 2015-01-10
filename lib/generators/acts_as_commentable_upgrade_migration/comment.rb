@@ -23,6 +23,15 @@ class Comment < ActiveRecord::Base
       :user_id     => user_id
   end
 
+  def build_child(obj, user_id, comment)
+    self.class.new(
+      :commentable => obj,
+      :body        => comment,
+      :user_id     => user_id,
+      :parent_id   => id
+    )
+  end
+
   #helper method to check if a comment has children
   def has_children?
     self.children.size > 0
