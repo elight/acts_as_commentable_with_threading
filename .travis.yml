@@ -1,10 +1,13 @@
 gemfile:
   - gemfiles/Gemfile.rails-4.0
   - gemfiles/Gemfile.rails-4.1
+  - gemfiles/Gemfile.rails-4.2
+  - gemfiles/Gemfile.rails-5.0
 rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.0
+  - 2.2.4
   - jruby-19mode
   - rbx-2
 matrix:
@@ -12,3 +15,13 @@ matrix:
     - rvm: rbx-2
     - gemfile: gemfiles/Gemfile.rails-4.1
       rvm: jruby-19mode
+    - gemfile: gemfiles/Gemfile.rails-4.2
+      rvm: jruby-19mode
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: jruby-19mode
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: 1.9.3
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: 2.0.0
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: 2.1.0

@@ -28,7 +28,7 @@ module Acts #:nodoc:
     # Helper method to lookup for comments for a given object.
     # This method is equivalent to obj.comments.
     def find_comments_for(obj)
-      Comment.where(:commentable_id => obj.id, :commentable_type => obj.class.base_class).order('created_at DESC')
+      Comment.where(:commentable_id => obj.id, :commentable_type => obj.class.base_class.name).order('created_at DESC')
     end
 
     # Helper class method to lookup comments for
