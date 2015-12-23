@@ -3,3 +3,5 @@
 gemfiles/*.lock
 pkg/*
 spec/debug.log
+Gemfile.lock
+
