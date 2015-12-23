@@ -1,3 +1,8 @@
+v2.0.1
+------
+
+- Minor change to eliminate warning when used with Rails 5.x
+
 v2.0.0
 ------
 
