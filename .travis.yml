@@ -5,10 +5,11 @@ gemfile:
   - gemfiles/Gemfile.rails-4.1
   - gemfiles/Gemfile.rails-4.2
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.0
+  - 2.3.0
   - 2.2.3
+  - 2.1.0
+  - 2.0.0
+  - 1.9.3
   - jruby-19mode
   - rbx-2
 matrix:
