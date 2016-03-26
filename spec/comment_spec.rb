@@ -5,12 +5,12 @@ require File.expand_path('./spec_helper', File.dirname(__FILE__))
 describe Comment do
   before do
     @user = User.create!
-    @comment = Comment.create!(body: 'Root comment', user: @user)
+    @comment = Comment.create!(body: "Root comment", commenter: @user)
   end
 
-  describe 'that is valid' do
-    it 'should have a user' do
-      expect(@comment.user).not_to be_nil
+  describe "that is valid" do
+    it "should have a user" do
+      expect(@comment.commenter).not_to be_nil
     end
 
     it 'should have a body' do
@@ -26,8 +26,8 @@ describe Comment do
     expect(@comment.children.size).to eq(0)
   end
 
-  it 'can add child Comments' do
-    grandchild = Comment.new(body: 'This is a grandchild', user: @user)
+  it "can add child Comments" do
+    grandchild = Comment.new(body: "This is a grandchild", commenter: @user)
     grandchild.save!
     grandchild.move_to_child_of(@comment)
     expect(@comment.children.size).to eq(1)
@@ -35,7 +35,7 @@ describe Comment do
 
   describe 'after having a child added' do
     before do
-      @child = Comment.create!(body: 'Child comment', user: @user)
+      @child = Comment.create!(body: "Child comment", commenter: @user)
       @child.move_to_child_of(@comment)
     end
 
@@ -48,14 +48,13 @@ describe Comment do
     end
   end
 
-  describe 'finders' do
-    describe '#find_comments_by_user' do
+  describe "finders" do
+    describe "#find_comments_by_commenter" do
       before :each do
         @other_user = User.create!
-        @user_comment = Comment.create!(body: 'Child comment', user: @user)
-        @non_user_comment = Comment.create!(body: 'Child comment',
-                                            user: @other_user)
-        @comments = Comment.find_comments_by_user(@user)
+        @user_comment = Comment.create!(body: "Child comment", commenter: @user)
+        @non_user_comment = Comment.create!(body: "Child comment", commenter: @other_user)
+        @comments = Comment.find_comments_by_commenter(@user)
       end
 
       it 'should return all the comments created by the passed user' do
@@ -70,21 +69,18 @@ describe Comment do
     describe '#find_comments_for_commentable' do
       before :each do
         @other_user = User.create!
-        @user_comment =
-          Comment.create!(body: 'from user',
-                          commentable_type: @other_user.class.to_s,
-                          commentable_id: @other_user.id,
-                          user: @user)
+        @user_comment = Comment.create!(body: 'from user',
+                                        commentable_type: @other_user.class.to_s,
+                                        commentable_id: @other_user.id,
+                                        commenter: @user)
 
-        @other_comment =
-          Comment.create!(body: 'from other user',
-                          commentable_type: @user.class.to_s,
-                          commentable_id: @user.id,
-                          user: @other_user)
+        @other_comment = Comment.create!(body: 'from other user',
+                                         commentable_type: @user.class.to_s,
+                                         commentable_id: @user.id,
+                                         commenter: @other_user)
 
-        @comments =
-          Comment.find_comments_for_commentable(@other_user.class,
-                                                @other_user.id)
+        @comments = Comment.find_comments_for_commentable(@other_user.class, 
+                                                          @other_user)
       end
 
       it 'should return the comments for the passed commentable' do

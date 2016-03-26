@@ -36,10 +36,9 @@ module Acts #:nodoc:
       # Helper class method to lookup comments for
       # the mixin commentable type written by a given user.
       # This method is NOT equivalent to Comment.find_comments_for_user
-      def find_comments_by_user(user)
-        commentable = base_class.name.to_s
-        Comment.where(user_id: user.id, commentable_type: commentable)
-          .order('created_at DESC')
+      def find_comments_by_commenter(commenter)
+        commentable = self.base_class.name.to_s
+        Comment.where(commenter_id: commenter.id, commenter_type: commenter.class.to_s, commentable_type: commentable).order('created_at DESC')
       end
     end
 

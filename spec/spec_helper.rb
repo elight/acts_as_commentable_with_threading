@@ -18,7 +18,7 @@ require File.join(plugin_test_dir, '..', 'lib', 'generators',
                   'templates', 'comment')
 
 class User < ActiveRecord::Base
-  has_many :comments
+  has_many :comments, :as => :commenter
 end
 
 class Commentable < ActiveRecord::Base

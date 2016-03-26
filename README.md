@@ -58,7 +58,7 @@ Usage
 
         @article = Article.find(params[:id])
         @user_who_commented = @current_user
-        @comment = Comment.build_from( @article, @user_who_commented.id, "Hey guys this is my comment!" )
+        @comment = Comment.build_from( @article, @user_who_commented, "Hey guys this is my comment!" )
 
 * To make a newly created comment into a child/reply of another comment:
 
