@@ -1,49 +1,50 @@
 require File.expand_path('./spec_helper', File.dirname(__FILE__))
 
-# Specs some of the behavior of awesome_nested_set although does so to demonstrate the use of this gem
+# Specs some of the behavior of awesome_nested_set although does so to
+# demonstrate the use of this gem
 describe Comment do
   before do
     @user = User.create!
-    @comment = Comment.create!(:body => "Root comment", :commenter => @user)
+    @comment = Comment.create!(body: "Root comment", commenter: @user)
   end
 
   describe "that is valid" do
     it "should have a user" do
-      @comment.commenter.should_not be_nil
+      expect(@comment.commenter).not_to be_nil
     end
-    
-    it "should have a body" do
-      @comment.body.should_not be_nil
+
+    it 'should have a body' do
+      expect(@comment.body).not_to be_nil
     end
-  end
-    
-  it "should not have a parent if it is a root Comment" do
-    @comment.parent.should be_nil
   end
 
-  it "can have see how child Comments it has" do
-    @comment.children.size.should == 0
+  it 'should not have a parent if it is a root Comment' do
+    expect(@comment.parent).to be_nil
+  end
+
+  it 'can have see how child Comments it has' do
+    expect(@comment.children.size).to eq(0)
   end
 
   it "can add child Comments" do
-    grandchild = Comment.new(:body => "This is a grandchild", :commenter => @user)
+    grandchild = Comment.new(body: "This is a grandchild", commenter: @user)
     grandchild.save!
     grandchild.move_to_child_of(@comment)
-    @comment.children.size.should == 1
-  end    
+    expect(@comment.children.size).to eq(1)
+  end
 
-  describe "after having a child added" do
+  describe 'after having a child added' do
     before do
-      @child = Comment.create!(:body => "Child comment", :commenter => @user)
+      @child = Comment.create!(body: "Child comment", commenter: @user)
       @child.move_to_child_of(@comment)
     end
-    
-    it "can be referenced by its child" do    
-      @child.parent.should == @comment
+
+    it 'can be referenced by its child' do
+      expect(@child.parent).to eq(@comment)
     end
-    
-    it "can see its child" do
-      @comment.children.first.should == @child
+
+    it 'can see its child' do
+      expect(@comment.children.first).to eq(@child)
     end
   end
 
@@ -51,36 +52,43 @@ describe Comment do
     describe "#find_comments_by_commenter" do
       before :each do
         @other_user = User.create!
-        @user_comment = Comment.create!(:body => "Child comment", :commenter => @user)
-        @non_user_comment = Comment.create!(:body => "Child comment", :commenter => @other_user)
+        @user_comment = Comment.create!(body: "Child comment", commenter: @user)
+        @non_user_comment = Comment.create!(body: "Child comment", commenter: @other_user)
         @comments = Comment.find_comments_by_commenter(@user)
       end
 
-      it "should return all the comments created by the passed user" do
-        @comments.should include(@user_comment)
+      it 'should return all the comments created by the passed user' do
+        expect(@comments).to include(@user_comment)
       end
-      
-      it "should not return comments created by non-passed users" do
-        @comments.should_not include(@non_user_comment)
+
+      it 'should not return comments created by non-passed users' do
+        expect(@comments).not_to include(@non_user_comment)
       end
     end
 
-    describe "#find_comments_for_commentable" do
+    describe '#find_comments_for_commentable' do
       before :each do
         @other_user = User.create!
-        @user_comment = Comment.create!(:body => 'from user', :commentable_type => @other_user.class.to_s, :commentable_id => @other_user.id, :commenter => @user)
+        @user_comment = Comment.create!(body: 'from user',
+                                        commentable_type: @other_user.class.to_s,
+                                        commentable_id: @other_user.id,
+                                        commenter: @user)
 
-        @other_comment = Comment.create!(:body => 'from other user', :commentable_type => @user.class.to_s, :commentable_id => @user.id, :commenter => @other_user)
+        @other_comment = Comment.create!(body: 'from other user',
+                                         commentable_type: @user.class.to_s,
+                                         commentable_id: @user.id,
+                                         commenter: @other_user)
 
-        @comments = Comment.find_comments_for_commentable(@other_user.class, @other_user)
+        @comments = Comment.find_comments_for_commentable(@other_user.class, 
+                                                          @other_user)
       end
 
-      it "should return the comments for the passed commentable" do
-        @comments.should include(@user_comment)
+      it 'should return the comments for the passed commentable' do
+        expect(@comments).to include(@user_comment)
       end
 
-      it "should not return the comments for non-passed commentables" do
-        @comments.should_not include(@other_comment)
+      it 'should not return the comments for non-passed commentables' do
+        expect(@comments).not_to include(@other_comment)
       end
     end
   end

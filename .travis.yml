@@ -1,16 +1,31 @@
+before_install:
+  - gem update bundler
 gemfile:
-  - gemfiles/Gemfile.rails-3.0
-  - gemfiles/Gemfile.rails-3.1
-  - gemfiles/Gemfile.rails-3.2
-  - gemfiles/Gemfile.rails-4.0
+  - gemfiles/Gemfile.rails-5.0
+  - gemfiles/Gemfile.rails-4.2
   - gemfiles/Gemfile.rails-4.1
+  - gemfiles/Gemfile.rails-4.0
 rvm:
-  - 1.9.3
-  - 2.0.0
+  - 2.3.0
+  - 2.2.3
   - 2.1.0
+  - 2.0.0
+  - 1.9.3
   - jruby-19mode
-  - rbx
+  - rbx-2
 matrix:
+  exclude:
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: rbx-2
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: jruby-19mode
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: 1.9.3
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: 2.0.0
+    - gemfile: gemfiles/Gemfile.rails-5.0
+      rvm: 2.1.0
   allow_failures:
+    - rvm: rbx-2
     - gemfile: gemfiles/Gemfile.rails-4.1
       rvm: jruby-19mode

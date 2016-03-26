@@ -17,7 +17,7 @@ class ActsAsCommentableUpgradeMigration < ActiveRecord::Migration
     add_index     :comments, :commenter_id
     remove_index  :comments, :user_id
   end
-  
+
   def self.down
     rename_column :comments, :body, :comment
     remove_column :comments, :subject
