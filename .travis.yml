@@ -1,6 +1,7 @@
 before_install:
   - gem update bundler
 gemfile:
+  - gemfiles/Gemfile.rails-5.1
   - gemfiles/Gemfile.rails-5.0
   - gemfiles/Gemfile.rails-4.2
   - gemfiles/Gemfile.rails-4.1
