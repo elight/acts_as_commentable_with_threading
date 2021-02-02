@@ -12,9 +12,9 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec', '~> 2.4'
-  s.add_development_dependency 'rails', '>= 3.0'
+  s.add_development_dependency 'rails', '>= 5.0'
 
-  s.add_dependency 'activerecord', '>= 3.0'
-  s.add_dependency 'activesupport', '>= 3.0'
-  s.add_dependency 'awesome_nested_set', '3.0.0.rc.5'
+  s.add_dependency 'activerecord', '>= 5.0'
+  s.add_dependency 'activesupport', '>= 5.0'
+  s.add_dependency 'awesome_nested_set', '3.1.4'
 end
