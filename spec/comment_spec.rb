@@ -46,7 +46,7 @@ describe Comment do
       @comment.children.first.should == @child
     end
     
-    it "can identify that an admin has replied to the parent" do
+    it 'can identify that an admin has replied to the parent' do
       @child.admin_post = true
       @child.save!
       @comment.has_admin_children?.should == true
