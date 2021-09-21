@@ -103,15 +103,15 @@ describe Comment do
         @comments = Comment.visible
       end
 
-      it "should return the comments that have not been flagged as hidden" do
+      it 'does return the comments that have not been flagged as hidden' do
         @comments.should include(@comment)
       end
 
-      it "should not return the comments that have been flagged as hidden" do
+      it 'does not return the comments that have been flagged as hidden' do
         @comments.should_not include(@hidden_comment)
       end
       
-      it "should not return comments that are children of comments that have been hidden" do
+      it 'does not return comments that are children of comments that have been hidden' do
         @comments.should_not include(@child_comment)
       end
     end
